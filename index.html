@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+</head>
+<body class="relative">
+
+  <!-- Overlay escuro -->
+  <div class="fixed top-0 left-0 w-full h-screen bg-black/70 z-10"></div>
+
+  <!-- Carrossel de fundo -->
+  <div id="default-carousel" class="fixed top-0 left-0 w-full h-screen z-0" data-carousel="slide">
+    <div id="carousel-slides" class="bg-black/30 relative w-full h-full overflow-hidden">
+      <!-- Slides serão inseridos aqui pelo JS -->
+    </div>
+  </div>
+
+  <main class="relative z-10 p-10 text-white">
+    <ul class="flex gap-x-4 text-4xl text-right p-2 my-6 mx-4 box-decoration-slice bg-linear-to-r from-gray-700 to-gray-500 px-2 text-white">
+        <li>MyFilms</li>
+        <li class="text-blue-300">Login</li>
+    </ul>
+    <div class="flex justify-center items-center h-screen text-center text-2xl">
+      <form action="#" method="post" class="mt-4 space-y-4 text-left">
+        <div>
+          <label for="nome">Nome de usuário</label><br>
+          <input type="text" id="nome" name="nomeusuario" class="bg-gray-200 p-1 border border-gray-300 text-black w-full">
+        </div>
+        <div>
+          <label for="senha">Senha</label><br>
+          <input type="password" id="senha" name="senha" class="bg-gray-200 p-2 border border-gray-300 text-black w-full">
+        </div>
+        <button type="submit" class="w-full p-2 bg-gray-700 border border-gray-800 hover:bg-blue-300 hover:border-blue-450 text-white rounded">
+          Entrar
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    const carousel = document.getElementById('carousel-slides');
+
+    // Insira aqui os nomes das suas 15 imagens, na ordem desejada
+    const imagens = [
+      'img/image1.png',
+      'img/image2.png',
+      'img/image3.png',
+      'img/image4.png',
+      'img/image5.png',
+      'img/image6.png',
+      'img/image7.png',
+      'img/image8.png',
+      'img/image9.png',
+      'img/image10.png',
+      'img/image11.png',
+      'img/image12.png',
+      'img/image13.png',
+      'img/image14.png',
+      'img/image15.png'
+    ];
+
+    imagens.forEach((src, index) => {
+      const slide = document.createElement('div');
+      slide.className = 'hidden duration-700 ease-in-out';
+      slide.setAttribute('data-carousel-item', '');
+
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = `Banner ${index + 1}`;
+      img.className = 'bg-black/30 w-full h-full object-cover';
+
+      slide.appendChild(img);
+      carousel.appendChild(slide);
+    });
+  </script>
+
+</body>
+</html>
